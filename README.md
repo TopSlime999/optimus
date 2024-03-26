@@ -31,4 +31,5 @@ Don't ask why we named it that...
 
 * **Notes**
     * Will soon add option to read specific file, and view lines in terminal.
-    * improvements to code logic and speed.
+    * improvements to code logic and speed
+    * expects files to be `UTF-8` encoded. (Will improve upon this as well.)
