@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import sys
 import time as t
 import os
@@ -11,27 +10,11 @@ def handle_errors(file, message):
 
 
 def initilize():
-  try:
-    test, var = sys.argv[1], sys.argv[2]
-  except IndexError:
-    sys.stdout.write(" Proper usage python [filename].py ['searched_term'] [mode (-D, -R, -F)] (if -F file to search.)\nex: python main.py 'Hello world' -R")
-    sys.exit()
-
-  if sys.argv[2].lower() not in ("-d", "-r", "-f"):
+  if sys.argv[2].lower() not in ("-d", "-r"):
     sys.stdout.write(
-        " Invalid usage. Valid modes are -D (search current directory), -R (search current and subdirectories), -F (search specific file).\n"
+        " Invalid usage. Valid modes are -D (search current directory), -R (search current and subdirectories)\n"
     )
     sys.exit()
-
-  while sys.argv[2].lower() == "-f":
-    try:
-      test_var = sys.argv[3]
-    except IndexError:
-      sys.stdout.write(
-          " Proper usage python [filename].py ['searched_term'] [mode (-D, -R, -F)] (if -F file to search.)"
-      )
-      sys.exit()
-    break
 
 
 def get_files(mode):
