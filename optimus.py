@@ -31,8 +31,8 @@ def get_files(mode):
     for dir in os.listdir(cwd):
       if os.path.isdir(dir):
         num_subdirs += 1
-        # Assuming average file open/read time of 0.01 seconds
-        estimated_time += 0.01 * len(os.listdir(f"{cwd}/{dir}"))
+        # Assuming average file open/read time of 0.005 seconds
+        estimated_time += 0.005 * len(os.listdir(f"{cwd}/{dir}"))
 
     sys.stdout.write(
         f"{num_subdirs} subdirectories will be searched. Estimated additional time: {estimated_time:.2f} seconds\n"
@@ -51,12 +51,11 @@ def search(files):
   to_be_searched = len(files)
   instances = []
   for file in files:
-    start_time = t.time()
     if not os.path.isfile(file) or not os.access(file, os.R_OK):
       handle_errors(file,
                     "File found, but permission denied. OR non file found.")
       continue
-
+    start_time = t.time()
     try:
       with open(file, "r", encoding="UTF-8") as searched_file:
         file_lines = searched_file.readlines()
@@ -71,10 +70,8 @@ def search(files):
       handle_errors(file, "contains unreadable characters.")
     except:
       handle_errors(file, "is possibly empty")
-
-    end_time = t.time()
     sys.stdout.write(
-        f" SEARCH OF {file} COMPLETED TOOK {str(end_time - start_time)[0]} seconds\n"
+        f" SEARCH OF {file} COMPLETED TOOK {str(t.time() - start_time)} seconds\n"
     )
 
   return instances
