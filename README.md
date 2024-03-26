@@ -25,7 +25,7 @@ Don't ask why we named it that...
 **Example**
 
 ```bash
-./pysearch.py hello_world -R
+./pysearch.py 'hello_world' -R
 ```
 
 * **Notes**
