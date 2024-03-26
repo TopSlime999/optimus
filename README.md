@@ -21,6 +21,7 @@ Don't ask why we named it that...
 
 1. Save the script as a Python file (e.g., `pysearch.py`).
 2. Make the script executable using `chmod +x pysearch.py`. (Optional but recommended for convenience)
+   1. If you do not make it executable you must execute using `python pysearch.py 'term' [-R/-D]`    
 
 **Example**
 
