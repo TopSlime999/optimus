@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+#A ton of issues, but i will fix later :)
 import sys
 import time as t
 import os
@@ -7,6 +7,7 @@ import os
 
 def handle_errors(file, message):
   sys.stdout.write(f" {file} {message}\n")
+  #I will make it actually do something abt errors later... lazy
 
 
 def initilize():
